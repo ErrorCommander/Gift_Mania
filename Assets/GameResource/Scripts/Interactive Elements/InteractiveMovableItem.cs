@@ -13,23 +13,23 @@ namespace Gameplay.Interactive
         private GraphicRaycaster _raycaster;
         private Vector3 _originalPosition;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
             _raycaster = GetComponentInParent<GraphicRaycaster>();
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
+        public virtual void OnBeginDrag(PointerEventData eventData)
         {
             _originalPosition = _rectTransform.position;
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public virtual void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
         }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public virtual void OnEndDrag(PointerEventData eventData)
         {
             var raycastResults = new List<RaycastResult>();
             _raycaster.Raycast(eventData, raycastResults);
@@ -38,7 +38,7 @@ namespace Gameplay.Interactive
             {
                 if (raycastResults[i].gameObject.TryGetComponent(out InteractiveItemPlace<TValue> itemPlace))
                 {
-                    itemPlace.TryAddItem(GetItem());
+                    RealiseItem(itemPlace.TryAddItem(GetItem()));
                     break;
                 }
             }
