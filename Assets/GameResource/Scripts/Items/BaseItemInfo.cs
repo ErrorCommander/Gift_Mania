@@ -19,26 +19,11 @@ namespace Gameplay.ItemInfo
         
         public bool AddElement(OrnamentInfo ornament) => AddElement(ornament, ref _ornament);
 
-        private bool AddElement<TValue>(TValue other, ref TValue myElement) where TValue : ElementInfo
-        {
-            if (myElement != null || other == null || other.ElementColor == _box.ElementColor)
-            {
-                return false;
-            }
-            
-            myElement = other;
-            return true;
-        }
-
         public int GetGiftCode() => GetCode(10);
-        
-        private int GetCode(int seed) =>  (_box == null ? 0 : (int)_box.ElementColor * seed * seed)
-                                        + (_bow == null ? 0 : (int)_bow.ElementColor * seed)
-                                        + (_ornament == null ? 0 : (int)_ornament.ElementColor);
 
         public override string ToString()
         {
-            return $"Gift {GetGiftCode()} Box {_box.ElementColor}, Bow {(_bow != null ? _bow.ElementColor : "None")}, Ornament {(_ornament != null ? _ornament.ElementColor : "None")}";
+            return $"Gift {GetGiftCode()} : Box {_box.ElementColor}, Bow {(_bow != null ? _bow.ElementColor : "None")}, Ornament {(_ornament != null ? _ornament.ElementColor : "None")}";
         }
 
         public override bool Equals(object other)
@@ -52,6 +37,21 @@ namespace Gameplay.ItemInfo
         }
 
         public override int GetHashCode() => GetCode(3527);
+
+        private bool AddElement<TValue>(TValue other, ref TValue myElement) where TValue : ElementInfo
+        {
+            if (myElement != null || other == null || other.ElementColor == _box.ElementColor)
+            {
+                return false;
+            }
+            
+            myElement = other;
+            return true;
+        }
+
+        private int GetCode(int seed) =>  (_box == null ? 0 : (int)_box.ElementColor * seed * seed)
+                                          + (_bow == null ? 0 : (int)_bow.ElementColor * seed)
+                                          + (_ornament == null ? 0 : (int)_ornament.ElementColor);
     }
 
     public abstract class ElementInfo : BaseItemInfo
