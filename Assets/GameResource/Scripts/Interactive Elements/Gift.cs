@@ -1,4 +1,6 @@
+using Gameplay.Infrastructures;
 using Gameplay.ItemInfo;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +9,10 @@ namespace Gameplay.Interactive
     public class Gift : InteractiveMovableItem<GiftInfo>
     {
         [SerializeField] private Image _imageGift;
+        [SerializeField] private GiftSpriteContainer _spriteContainer;
+        [SerializeField, Range(0, 0.5f)] private float _fadeDuration = 0.2f;
         
-        private GiftInfo _giftInfo = new GiftInfo(new BoxInfo(ElementColor.Blue));
+        private GiftInfo _giftInfo;
 
         public bool AddElement(BoxInfo box)
         {
@@ -16,8 +20,9 @@ namespace Gameplay.Interactive
                 return false;
 
             _giftInfo = new GiftInfo(box);
-            ColorImage();
-
+            Debug.Log($"Create gift result gift {_giftInfo}");
+            SetSprite();
+            AppearSprite();
             return true;
         }
 
@@ -28,6 +33,8 @@ namespace Gameplay.Interactive
             
             bool result = _giftInfo.AddElement(bow);
             Debug.Log($"Success {result} result gift {_giftInfo}");
+            if (result)
+                SetSprite();
             return result;
         }
 
@@ -38,6 +45,8 @@ namespace Gameplay.Interactive
             
             bool result = _giftInfo.AddElement(ornament);
             Debug.Log($"Success {result} result gift {_giftInfo}");
+            if (result)
+                SetSprite();
             return result;
         }
 
@@ -45,9 +54,9 @@ namespace Gameplay.Interactive
         {
             if (!isTransferred) 
                 return;
-            
+
+            HideSprite();
             _giftInfo = null;
-            ColorImage();
         }
 
         protected override GiftInfo GetItem()
@@ -55,26 +64,18 @@ namespace Gameplay.Interactive
             return _giftInfo;
         }
 
-        private void ColorImage()
+        private void Start() => HideSprite();
+
+        private void HideSprite() => _imageGift.CrossFadeAlpha(0, 0, true);
+
+        private void AppearSprite() => _imageGift.CrossFadeAlpha(1, _fadeDuration, true);
+
+        private void SetSprite()
         {
             if (_giftInfo == null)
-            {
-                _imageGift.color = Color.gray;
                 return;
-            }
             
-            switch (_giftInfo.BoxColor)
-            {
-                case ElementColor.Blue:
-                    _imageGift.color = Color.blue;
-                    break;
-                case ElementColor.Red:
-                    _imageGift.color = Color.red;
-                    break;
-                case ElementColor.Green:
-                    _imageGift.color = Color.green;
-                    break;
-            }
+            _imageGift.sprite = _spriteContainer.GetSprite(_giftInfo);;
         }
     }
 }
