@@ -12,4 +12,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1034956bb6c8694b9d70053a3d7bda7, type: 3}
   m_Name: GiftSpritesPresset
   m_EditorClassIdentifier: 
-  _giftSprites: []
+  _giftSprites:
+  - Sprite: {fileID: 21300000, guid: 6d1eac2ff0f2fd949b0210d608b54d9b, type: 3}
+    Code: 100
+  - Sprite: {fileID: 21300000, guid: 82c19ce7c4df35e49836173eae60cc3a, type: 3}
+    Code: 102
+  - Sprite: {fileID: 21300000, guid: d9291aed3457c214cb41872bd9fcc5c5, type: 3}
+    Code: 103
+  - Sprite: {fileID: 21300000, guid: b88e712437e02274390a11d3d41a4b72, type: 3}
+    Code: 120
+  - Sprite: {fileID: 21300000, guid: f0b4cc4b2e5eb5a48b01940fd7c29336, type: 3}
+    Code: 122
+  - Sprite: {fileID: 21300000, guid: 3adca374181064f45bcc27b866a15675, type: 3}
+    Code: 123
+  - Sprite: {fileID: 21300000, guid: fcbba8e520de1b04293c28f776bc730e, type: 3}
+    Code: 130
+  - Sprite: {fileID: 21300000, guid: 213caed89fde57f4786ec6cd8e37cb3e, type: 3}
+    Code: 132
+  - Sprite: {fileID: 21300000, guid: f9f2a0dfc8d6feb4fb36ae174c8e04d2, type: 3}
+    Code: 133
+  - Sprite: {fileID: 21300000, guid: 8fdeca3c80556954a8382c6bb4f0edcc, type: 3}
+    Code: 200
+  - Sprite: {fileID: 21300000, guid: d5a65397f3a399a41b7cdf05a6ce97b4, type: 3}
+    Code: 201
+  - Sprite: {fileID: 21300000, guid: 4d13c7df13ec2fe4f8c76ed9fe579b6c, type: 3}
+    Code: 203
+  - Sprite: {fileID: 21300000, guid: 78a789ce67c2e9b4f868c32ae50eca9a, type: 3}
+    Code: 210
+  - Sprite: {fileID: 21300000, guid: 65802cb88fe230c4faa39b1901e51e49, type: 3}
+    Code: 211
+  - Sprite: {fileID: 21300000, guid: 52f6dfecf813e7d45a1f2cf198a541d8, type: 3}
+    Code: 213
+  - Sprite: {fileID: 21300000, guid: ff98519c290fb9a4bab8fec37e166cda, type: 3}
+    Code: 230
+  - Sprite: {fileID: 21300000, guid: 84071ae3d7ee18843a691899224149b6, type: 3}
+    Code: 231
+  - Sprite: {fileID: 21300000, guid: 5f5d080106c4ecd48a55646fb5b1e74e, type: 3}
+    Code: 233
+  - Sprite: {fileID: 21300000, guid: daf9d812552fa9f49abaec028da8422b, type: 3}
+    Code: 300
+  - Sprite: {fileID: 21300000, guid: 07dbc8ff04fda7349af5a267df9c81a0, type: 3}
+    Code: 301
+  - Sprite: {fileID: 21300000, guid: 041f8fc3e8038c4448137ca0c64b87e2, type: 3}
+    Code: 302
+  - Sprite: {fileID: 21300000, guid: ae072f0f3239db44aa3e1ff19b6c52d5, type: 3}
+    Code: 310
+  - Sprite: {fileID: 21300000, guid: 3a7df10c80642264b9533b1b5791c043, type: 3}
+    Code: 311
+  - Sprite: {fileID: 21300000, guid: cc8ed7e32aed4884d9a768ca67f4a84e, type: 3}
+    Code: 312
+  - Sprite: {fileID: 21300000, guid: 9b45eac4e7b4b5842ba3a2d478fc1d66, type: 3}
+    Code: 320
+  - Sprite: {fileID: 21300000, guid: 4a2bd14a43c82da4898d71ed36e6c14f, type: 3}
+    Code: 321
+  - Sprite: {fileID: 21300000, guid: ef64ac7b1b21b0e41bd637c1015032ef, type: 3}
+    Code: 322
