@@ -21,9 +21,14 @@ namespace Gameplay
         public static int GetRandomGiftCode()
         {
             if (_giftVariants == null || _giftVariants.Count == 0)
+            {
+                Debug.LogWarning("Not fount gift combination.");
                 return 0;
-            
-            return _giftVariants[Random.Range(0, _giftVariants.Count)];
+            }
+
+            int giftBox = _giftVariants[Random.Range(0, _giftVariants.Count)];
+            Debug.Log("Get random GiftCode: " + giftBox);
+            return giftBox;
         }
 
         private static void CombiningGift()
