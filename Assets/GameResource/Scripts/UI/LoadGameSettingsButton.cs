@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gameplay
+namespace Gameplay.UI
 {
     [RequireComponent(typeof(Button))]
     public class LoadGameSettingsButton : MonoBehaviour

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Gameplay
+namespace Gameplay.UI
 {
     [RequireComponent(typeof(Button))]
     public class LoadSceneButton : MonoBehaviour
