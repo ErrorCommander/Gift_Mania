@@ -18,6 +18,11 @@ namespace Gameplay
         private static GameSettings _gameSettings;
         private static List<int> _giftVariants;
 
+        static GameMode()
+        {
+            CurrentSettings =  new GameSettings(30, 5, 10);
+        }
+        
         public static int GetRandomGiftCode()
         {
             if (_giftVariants == null || _giftVariants.Count == 0)

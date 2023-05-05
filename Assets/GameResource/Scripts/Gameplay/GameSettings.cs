@@ -7,7 +7,7 @@ namespace Gameplay
     public struct GameSettings
     {
         [Header("Mission Settings")] 
-        [Min(1)] public float MissionDurationMinutes;
+        [Min(0)] public float MissionDurationMinutes;
         public float CustomerWaitSeconds;
         [Min(1)] public int WinningCustomerCount;
         [Range(1,5)] public int GiftPlaceCount;
@@ -24,5 +24,24 @@ namespace Gameplay
         public bool BlueOrnament;
         public bool RedOrnament;
         public bool GreenOrnament;
+
+        public GameSettings(float customerWaitSeconds, float missionDurationMinutes, int winningCustomerCount)
+        {
+            CustomerWaitSeconds = customerWaitSeconds;
+            MissionDurationMinutes = missionDurationMinutes;
+            WinningCustomerCount = winningCustomerCount;
+            
+            GiftPlaceCount = 1;
+            
+            BlueBox =
+            RedBox =
+            GreenBox =
+            BlueBow =
+            RedBow =
+            GreenBow =
+            BlueOrnament =
+            RedOrnament =
+            GreenOrnament = true;
+        }
     }
 }
