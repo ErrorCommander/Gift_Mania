@@ -21,7 +21,6 @@ namespace Gameplay.UI
 
         private void ApplyValue(float partValue)
         {
-            Debug.Log("Current partValue " + partValue);
             _slider.normalizedValue = partValue;
             foreach (var image in _coloringImage) 
                 image.color = _gradientColor.Evaluate(partValue);
