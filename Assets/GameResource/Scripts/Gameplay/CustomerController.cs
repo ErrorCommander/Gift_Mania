@@ -37,15 +37,32 @@ namespace Gameplay
             }
 
             SendCustomer();
-           _wait = StartCoroutine(Wait());
+            _wait = StartCoroutine(Wait());
             OnMoneyChanged.Invoke(0);
             OnChangeRemainingCustomersCount.Invoke(_remainingCustomersCount);
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var customer in _customers)
+            {
+                customer.OnEndVisit -= AddQueue;
+                customer.OnSuccessOrder -= SuccessfulService;
+            }
         }
 
         private void SuccessfulService(int value)
         {
             _money += value;
             _remainingCustomersCount--;
+            
+            if (_remainingCustomersCount <= 0)
+            {
+                _remainingCustomersCount = 0;
+                if(_wait != null)
+                    StopCoroutine(_wait);
+            }
+            
             OnMoneyChanged.Invoke(value);
             OnChangeRemainingCustomersCount.Invoke(_remainingCustomersCount);
         }

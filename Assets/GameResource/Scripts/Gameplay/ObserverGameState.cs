@@ -10,7 +10,7 @@ namespace Gameplay
         [SerializeField] private TextMeshProUGUI _customerCountText;
         [SerializeField] private TextMeshProUGUI _timerText;
         [SerializeField] private CustomerController _customerController;
-        [SerializeField] private GameState _gameState;
+        [SerializeField] private GameStateController _gameState;
 
         private void Start()
         {

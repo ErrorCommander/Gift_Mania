@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace Gameplay.Infrastructures
+namespace Gameplay.SO
 {
     [CreateAssetMenu(menuName = "My SO/GiftSprites", fileName = "GiftSpritesPresset")]
     public class GiftSpriteContainer : ScriptableObject

@@ -1,6 +1,5 @@
-using Gameplay.Infrastructures;
 using Gameplay.ItemInfo;
-using System;
+using Gameplay.SO;
 using UnityEngine;
 using UnityEngine.UI;
 

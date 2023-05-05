@@ -1,5 +1,5 @@
-using Gameplay.Infrastructures;
 using Gameplay.ItemInfo;
+using Gameplay.SO;
 using System;
 using System.Collections;
 using UnityEngine;
