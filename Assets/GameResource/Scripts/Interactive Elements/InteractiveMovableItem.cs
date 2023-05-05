@@ -9,8 +9,6 @@ namespace Gameplay.Interactive
     [RequireComponent(typeof(RectTransform))]
     public abstract class InteractiveMovableItem<TValue> : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler where TValue : BaseItemInfo
     {
-        [SerializeField] private Transform _parentForMove;
-            
         private RectTransform _rectTransform;
         private GraphicRaycaster _raycaster;
         private Vector3 _originalPosition;
@@ -26,7 +24,7 @@ namespace Gameplay.Interactive
         public virtual void OnBeginDrag(PointerEventData eventData)
         {
             _originalPosition = _rectTransform.position;
-            transform.SetParent(_parentForMove);
+            transform.SetParent(ParentMovedItems.Parent);
         }
 
         public virtual void OnDrag(PointerEventData eventData)
