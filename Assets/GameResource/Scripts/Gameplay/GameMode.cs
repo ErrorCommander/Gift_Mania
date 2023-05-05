@@ -20,7 +20,7 @@ namespace Gameplay
 
         static GameMode()
         {
-            CurrentSettings =  new GameSettings(30, 5, 10);
+            CurrentSettings =  new GameSettings(15, 1, 10);
         }
         
         public static int GetRandomGiftCode()
