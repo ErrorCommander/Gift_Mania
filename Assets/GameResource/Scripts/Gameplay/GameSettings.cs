@@ -6,7 +6,12 @@ namespace Gameplay
     [Serializable]
     public struct GameSettings
     {
-        public float CustomerWaitSec;
+        [Header("Mission Settings")] 
+        [Min(1)] public float MissionDurationMinutes;
+        public float CustomerWaitSeconds;
+        [Min(1)] public int WinningCustomerCount;
+        [Range(1,5)] public int GiftPlaceCount;
+        [Header("Gift Settings")]
         [Header("Box")]
         public bool BlueBox;
         public bool RedBox;

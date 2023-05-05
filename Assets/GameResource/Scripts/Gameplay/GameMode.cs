@@ -52,6 +52,7 @@ namespace Gameplay
             }
             
             _giftVariants = combining;
+            Debug.Log($"GameMode -> {_giftVariants.Count} Gift combinations found");
         }
 
         private static int[,] GetCombiningMatrix()
