@@ -7,10 +7,10 @@ namespace Gameplay.Extensions
         public static string ToStringTimeFormat(this float timeSeconds)
         {
             if (float.IsPositiveInfinity(timeSeconds))
-                return "∞";
+                return "\u221E";
 
             if (float.IsNegativeInfinity(timeSeconds))
-                return "-∞";
+                return "-\u221E";
 
             if (float.IsNaN(timeSeconds))
                 return "NaN";
