@@ -6,13 +6,13 @@ namespace Gameplay.Extensions
     {
         public static string ToStringTimeFormat(this float timeSeconds)
         {
-            if (timeSeconds == float.PositiveInfinity)
+            if (float.IsPositiveInfinity(timeSeconds))
                 return "∞";
 
-            if (timeSeconds == float.NegativeInfinity)
+            if (float.IsNegativeInfinity(timeSeconds))
                 return "-∞";
 
-            if (timeSeconds != timeSeconds)
+            if (float.IsNaN(timeSeconds))
                 return "NaN";
 
             int minutes = Mathf.FloorToInt(timeSeconds / 60f);
