@@ -1,14 +1,21 @@
+using UnityEngine;
+
 namespace Gameplay.ItemInfo
 {
     public class GiftInfo : BaseItemInfo
     {
-        public ElementColor BoxColor => _box.ElementColor;
-        
         private BoxInfo _box;
         private BowInfo _bow;
         private OrnamentInfo _ornament;
 
         public GiftInfo(BoxInfo box) => _box = box;
+
+        public GiftInfo(int code)
+        {
+            _box = new BoxInfo((ElementColor)(code / 100));
+            _bow = new BowInfo((ElementColor)((code / 10) % 10));
+            _ornament = new OrnamentInfo((ElementColor)(code % 10));
+        }
 
         public bool AddElement(BowInfo bow) => AddElement(bow, ref _bow);
         
