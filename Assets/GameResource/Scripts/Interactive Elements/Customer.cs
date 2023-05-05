@@ -9,9 +9,11 @@ namespace Gameplay.Interactive
 {
     public class Customer : InteractiveItemPlace<GiftInfo>
     {
+        private const float SAD_BORDER = 0.3f;
         public event Action<float, float> OnChangeWaitTime = delegate {  };
         public event Action OnFailOrder = delegate {  };
         public event Action<int> OnSuccessOrder = delegate {  };
+        public event Action<Customer> OnEndVisit = delegate (Customer customer) { customer.gameObject.SetActive(false); };
 
         [SerializeField] private GiftSpriteContainer _spriteContainer;
         [SerializeField] private Image _customerImage;
@@ -22,6 +24,7 @@ namespace Gameplay.Interactive
         private Sprite _sad;
         private Coroutine _wait;
         private GiftInfo _gift;
+        private bool _isHappy= true;
 
         public override bool TryAddItem(GiftInfo item)
         {
@@ -30,6 +33,7 @@ namespace Gameplay.Interactive
                 Debug.Log($"{name} AddItem " + item);
                 _gift = null;
                 OnSuccessOrder.Invoke(_reward);
+                OnEndVisit.Invoke(this);
                 return true;
             }
 
@@ -37,19 +41,18 @@ namespace Gameplay.Interactive
             return false;
         }
 
-        public void Visit(float waitTime, Sprite happy, Sprite sad)
+        public void Visit(float waitTime, GiftInfo gift, Sprite happy, Sprite sad)
         {
-            gameObject.SetActive(true);
-
             _happy = happy;
             _sad = sad;
-            _customerImage.sprite = _happy;
+
+            SetHappy(true);
             
             StopWait();
             if (waitTime > 0) 
                 _wait = StartCoroutine(Wait(waitTime));
 
-            _gift = new GiftInfo(GameMode.GetRandomGiftCode());
+            _gift = gift;
             _giftImage.sprite = _spriteContainer.GetSprite(_gift);
         }
 
@@ -65,6 +68,9 @@ namespace Gameplay.Interactive
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
+                if (_isHappy && timer / second < SAD_BORDER) 
+                    SetHappy(false);
+                
                 OnChangeWaitTime.Invoke(timer,second);
                 yield return null;
             }
@@ -72,6 +78,13 @@ namespace Gameplay.Interactive
             _wait = null;
             OnChangeWaitTime.Invoke(0, second);
             OnFailOrder.Invoke();
+            OnEndVisit.Invoke(this);
+        }
+
+        private void SetHappy(bool isHappy)
+        {
+            _customerImage.sprite = isHappy ? _happy : _sad;
+            _isHappy = isHappy;
         }
     }
 }
