@@ -1,12 +1,15 @@
 using Gameplay.ItemInfo;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gameplay.Interactive
 {
+    [RequireComponent(typeof(Image))]
     public class Gift : InteractiveMovableItem<GiftInfo>
     {
         [SerializeField] private GiftView _giftView;
         
+        private Image _raycastImage;
         private GiftInfo _giftInfo;
 
         public bool AddElement(BoxInfo box)
@@ -14,6 +17,7 @@ namespace Gameplay.Interactive
             if (_giftInfo != null)
                 return false;
 
+            _raycastImage.raycastTarget = true;
             _giftInfo = new GiftInfo(box);
             Debug.Log($"Create gift result gift {_giftInfo}");
             SetSprite();
@@ -49,6 +53,7 @@ namespace Gameplay.Interactive
             if (!isTransferred) 
                 return;
 
+            _raycastImage.raycastTarget = false;
             _giftInfo = null;
             SetSprite();
         }
@@ -58,7 +63,12 @@ namespace Gameplay.Interactive
             return _giftInfo;
         }
 
-        private void Start() => SetSprite();
+        private void Start()
+        {
+            _raycastImage = GetComponent<Image>();
+            _raycastImage.raycastTarget = false;
+            SetSprite();
+        }
 
         private void SetSprite()
         {

@@ -14,6 +14,8 @@ namespace Gameplay.Interactive
         private const float SAD_BORDER = 0.3f;
         public event Action<float, float> OnChangeWaitTime = delegate {  };
         public event Action OnFailOrder = delegate {  };
+        public event Action OnFailSendGift = delegate {  };
+        public event Action OnSuccessfulSendGift = delegate {  };
         public event Action<int> OnSuccessOrder = delegate {  };
         public event Action<Customer> OnEndVisit = delegate (Customer customer) { customer.gameObject.SetActive(false); };
 
@@ -53,6 +55,9 @@ namespace Gameplay.Interactive
 
         public override bool TryAddItem(GiftInfo item)
         {
+            if (item == null)
+                return false;
+
             if (item.Equals(_gift))
             {
                 Debug.Log($"{name} AddItem " + item);
@@ -66,10 +71,12 @@ namespace Gameplay.Interactive
                 else
                     SetGift(_giftQueue.Dequeue());
 
+                OnSuccessfulSendGift.Invoke();
                 return true;
             }
 
             Debug.Log($"{name} dont get item " + item);
+            OnFailSendGift.Invoke();
             return false;
         }
 

@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 625541498572405905}
   - component: {fileID: 2666151346340208710}
   - component: {fileID: 3979126315521043755}
+  - component: {fileID: 2779782511947605523}
   m_Layer: 5
   m_Name: Customer Card
   m_TagString: Untagged
@@ -524,6 +525,22 @@ MonoBehaviour:
   _boxView: {fileID: 6422481381784436082}
   _bowView: {fileID: 15534276486560977}
   _ornamentView: {fileID: 1966559405655444743}
+--- !u!111 &2779782511947605523
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541498572405914}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c4be58267c4a8004d8785945c93beaca, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c4be58267c4a8004d8785945c93beaca, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &625541498805105952
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +968,7 @@ GameObject:
   - component: {fileID: 625541499236346971}
   - component: {fileID: 625541499236346973}
   - component: {fileID: 625541499236346970}
+  - component: {fileID: 5202825739578685365}
   m_Layer: 5
   m_Name: Customer
   m_TagString: Untagged
@@ -1035,6 +1053,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5202825739578685365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541499236346969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8bbba1b31ec3e428586124d41b6aca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _customer: {fileID: 625541499236346971}
+  _animation: {fileID: 2779782511947605523}
 --- !u!1 &625541499264512072
 GameObject:
   m_ObjectHideFlags: 0
