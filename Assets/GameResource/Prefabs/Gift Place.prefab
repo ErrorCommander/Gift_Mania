@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4386160426217597304}
   - component: {fileID: 4386160426217597305}
   - component: {fileID: 4386160426217597302}
+  - component: {fileID: 5424405600609728242}
   - component: {fileID: 4386160426217597306}
   - component: {fileID: 4386160426217597307}
   m_Layer: 5
@@ -186,9 +187,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69d546eee524e6f93ac2a1bc725324b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _giftView: {fileID: 5424405600609728242}
+--- !u!114 &5424405600609728242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386160426217597300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c945e4cbcc413295da343ad739d8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.1
   _imageGift: {fileID: 4386160426217597305}
   _spriteContainer: {fileID: 11400000, guid: 2dd6a048c48a7b6428d4986af7342295, type: 2}
-  _fadeDuration: 0.2
 --- !u!114 &4386160426217597306
 MonoBehaviour:
   m_ObjectHideFlags: 0

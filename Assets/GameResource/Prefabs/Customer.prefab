@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 625541497618347919}
   - component: {fileID: 625541497618347905}
   - component: {fileID: 625541497618347918}
+  - component: {fileID: 6422481381784436082}
   m_Layer: 5
   m_Name: Box
   m_TagString: Untagged
@@ -116,6 +117,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6422481381784436082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541497618347916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fe07ef92d4dd3af39720b1e65e3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.1
+  _image: {fileID: 625541499508772556}
+  _spriteContainer: {fileID: 11400000, guid: 022e8c7388db93e428414641b014bafa, type: 2}
 --- !u!1 &625541497750066620
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +256,7 @@ GameObject:
   - component: {fileID: 625541498147042941}
   - component: {fileID: 625541498147042943}
   - component: {fileID: 625541498147042940}
+  - component: {fileID: 1966559405655444743}
   m_Layer: 5
   m_Name: Ornament
   m_TagString: Untagged
@@ -306,6 +323,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1966559405655444743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541498147042938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fe07ef92d4dd3af39720b1e65e3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.1
+  _image: {fileID: 625541498977822467}
+  _spriteContainer: {fileID: 11400000, guid: df2d363a7f56f2c44a84c590f7861512, type: 2}
 --- !u!1 &625541498188956969
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +425,8 @@ GameObject:
   - component: {fileID: 625541498572405917}
   - component: {fileID: 625541498572405919}
   - component: {fileID: 625541498572405905}
+  - component: {fileID: 2666151346340208710}
+  - component: {fileID: 3979126315521043755}
   m_Layer: 5
   m_Name: Customer Card
   m_TagString: Untagged
@@ -460,6 +494,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2666151346340208710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541498572405914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c945e4cbcc413295da343ad739d8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.1
+  _image: {fileID: 625541497957181494}
+  _spriteContainer: {fileID: 11400000, guid: 2dd6a048c48a7b6428d4986af7342295, type: 2}
+--- !u!114 &3979126315521043755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541498572405914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f3bcb959f76fd47acc9e2dbb24bacc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxView: {fileID: 6422481381784436082}
+  _bowView: {fileID: 15534276486560977}
+  _ornamentView: {fileID: 1966559405655444743}
 --- !u!1 &625541498805105952
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +535,7 @@ GameObject:
   - component: {fileID: 625541498805105955}
   - component: {fileID: 625541498805105957}
   - component: {fileID: 625541498805105954}
+  - component: {fileID: 15534276486560977}
   m_Layer: 5
   m_Name: Bow
   m_TagString: Untagged
@@ -537,6 +602,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &15534276486560977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625541498805105952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4fe07ef92d4dd3af39720b1e65e3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 0.1
+  _image: {fileID: 625541499164547195}
+  _spriteContainer: {fileID: 11400000, guid: 3340e9e3ad2f1bf4b9506f5a556f863e, type: 2}
 --- !u!1 &625541498977822465
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,9 +991,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2094d4f861904d2baf5c5a47920da46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteContainer: {fileID: 11400000, guid: 2dd6a048c48a7b6428d4986af7342295, type: 2}
+  _giftView: {fileID: 2666151346340208710}
+  _elementsGiftView: {fileID: 3979126315521043755}
   _customerImage: {fileID: 625541499655481880}
-  _giftImage: {fileID: 625541497957181494}
   _reward: 20
 --- !u!222 &625541499236346973
 CanvasRenderer:
