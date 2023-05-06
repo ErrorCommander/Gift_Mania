@@ -1,4 +1,4 @@
-using UnityEngine;
+using System;
 
 namespace Gameplay.ItemInfo
 {
@@ -20,9 +20,20 @@ namespace Gameplay.ItemInfo
             int bowCode = (code / 10) % 10;
             int ornamentCode = code % 10;
             
-            _box = boxCode == 0 ? null : new BoxInfo((ElementColor)boxCode);
-            _bow = bowCode == 0 ? null : new BowInfo((ElementColor)bowCode);
-            _ornament = ornamentCode == 0 ? null : new OrnamentInfo((ElementColor)ornamentCode);
+            SetElementWithCode(ref _box, boxCode);
+            SetElementWithCode(ref _bow, bowCode);
+            SetElementWithCode(ref _ornament, ornamentCode);
+        }
+
+        private void SetElementWithCode<T>(ref T element, int code) where T : ElementInfo
+        {
+            if (Enum.IsDefined(typeof(ElementColor), code))
+            {
+                ElementColor elementColor = (ElementColor)code;
+                element = (T)Activator.CreateInstance(typeof(T), elementColor);
+            }
+            else
+                element = null;
         }
 
         public bool AddElement(BowInfo bow) => AddElement(bow, ref _bow);
