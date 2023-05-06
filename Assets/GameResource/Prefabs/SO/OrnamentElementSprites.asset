@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb7aca5cc114dca8f80c7438722ff3f, type: 3}
   m_Name: OrnamentElementSprites
   m_EditorClassIdentifier: 
-  _sprites: []
+  _sprites:
+  - Sprite: {fileID: 21300000, guid: 8443196a4e70b3547a123e7b086847f4, type: 3}
+    Color: 1
+  - Sprite: {fileID: 21300000, guid: dac73402a2a7a304faedf7fa5c48d3c9, type: 3}
+    Color: 2
+  - Sprite: {fileID: 21300000, guid: b6149eef1c587d5488f0aca7f79fbdf0, type: 3}
+    Color: 3

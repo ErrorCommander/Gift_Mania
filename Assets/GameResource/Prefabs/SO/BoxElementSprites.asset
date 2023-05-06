@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb7aca5cc114dca8f80c7438722ff3f, type: 3}
   m_Name: BoxElementSprites
   m_EditorClassIdentifier: 
-  _sprites: []
+  _sprites:
+  - Sprite: {fileID: 21300000, guid: 9a06c08c4bf44384d8dd9a64d30f84ee, type: 3}
+    Color: 1
+  - Sprite: {fileID: 21300000, guid: 8732d76f817ed34429c0756ecbe9c16e, type: 3}
+    Color: 2
+  - Sprite: {fileID: 21300000, guid: a6bf15ebc7bb0584aa6efdf2a7f0cce8, type: 3}
+    Color: 3

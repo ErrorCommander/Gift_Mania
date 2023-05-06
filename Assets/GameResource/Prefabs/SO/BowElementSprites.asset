@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb7aca5cc114dca8f80c7438722ff3f, type: 3}
   m_Name: BowElementSprites
   m_EditorClassIdentifier: 
-  _sprites: []
+  _sprites:
+  - Sprite: {fileID: 21300000, guid: c9ae1cf7ce53c8743b61f587ba8b882c, type: 3}
+    Color: 1
+  - Sprite: {fileID: 21300000, guid: 461984fccd7dcfe47bcbfa3dd1dd611c, type: 3}
+    Color: 2
+  - Sprite: {fileID: 21300000, guid: df2c59e187e24b54595231b41ebba2d6, type: 3}
+    Color: 3
