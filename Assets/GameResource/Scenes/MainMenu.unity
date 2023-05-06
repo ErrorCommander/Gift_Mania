@@ -331,6 +331,7 @@ MonoBehaviour:
     MissionDurationMinutes: 7
     CustomerWaitSeconds: 45
     WinningCustomerCount: 12
+    MaxCountGiftsInOrder: 3
     GiftPlaceCount: 2
     BlueBox: 1
     RedBox: 0
@@ -774,7 +775,8 @@ MonoBehaviour:
     MissionDurationMinutes: 10
     CustomerWaitSeconds: 60
     WinningCustomerCount: 12
-    GiftPlaceCount: 2
+    MaxCountGiftsInOrder: 2
+    GiftPlaceCount: 1
     BlueBox: 1
     RedBox: 0
     GreenBox: 1
@@ -1360,7 +1362,8 @@ MonoBehaviour:
     MissionDurationMinutes: 5
     CustomerWaitSeconds: 20
     WinningCustomerCount: 14
-    GiftPlaceCount: 1
+    MaxCountGiftsInOrder: 4
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 1
@@ -2022,6 +2025,7 @@ MonoBehaviour:
     MissionDurationMinutes: 7
     CustomerWaitSeconds: 40
     WinningCustomerCount: 12
+    MaxCountGiftsInOrder: 3
     GiftPlaceCount: 2
     BlueBox: 1
     RedBox: 0
@@ -2249,7 +2253,8 @@ MonoBehaviour:
     MissionDurationMinutes: 0
     CustomerWaitSeconds: 0
     WinningCustomerCount: 5
-    GiftPlaceCount: 3
+    MaxCountGiftsInOrder: 2
+    GiftPlaceCount: 1
     BlueBox: 1
     RedBox: 1
     GreenBox: 0
@@ -2772,7 +2777,8 @@ MonoBehaviour:
     MissionDurationMinutes: 7
     CustomerWaitSeconds: 40
     WinningCustomerCount: 15
-    GiftPlaceCount: 2
+    MaxCountGiftsInOrder: 3
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 0
@@ -2936,7 +2942,8 @@ MonoBehaviour:
     MissionDurationMinutes: 7
     CustomerWaitSeconds: 45
     WinningCustomerCount: 14
-    GiftPlaceCount: 2
+    MaxCountGiftsInOrder: 3
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 0
@@ -3998,6 +4005,7 @@ MonoBehaviour:
     MissionDurationMinutes: 7
     CustomerWaitSeconds: 45
     WinningCustomerCount: 10
+    MaxCountGiftsInOrder: 3
     GiftPlaceCount: 2
     BlueBox: 1
     RedBox: 0
@@ -4162,7 +4170,8 @@ MonoBehaviour:
     MissionDurationMinutes: 5
     CustomerWaitSeconds: 30
     WinningCustomerCount: 12
-    GiftPlaceCount: 1
+    MaxCountGiftsInOrder: 4
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 1
@@ -4394,7 +4403,8 @@ MonoBehaviour:
     MissionDurationMinutes: 5
     CustomerWaitSeconds: 30
     WinningCustomerCount: 12
-    GiftPlaceCount: 1
+    MaxCountGiftsInOrder: 4
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 1
@@ -4845,7 +4855,8 @@ MonoBehaviour:
     MissionDurationMinutes: 10
     CustomerWaitSeconds: 50
     WinningCustomerCount: 10
-    GiftPlaceCount: 3
+    MaxCountGiftsInOrder: 2
+    GiftPlaceCount: 2
     BlueBox: 1
     RedBox: 1
     GreenBox: 0
@@ -5144,7 +5155,8 @@ MonoBehaviour:
     MissionDurationMinutes: 5
     CustomerWaitSeconds: 20
     WinningCustomerCount: 15
-    GiftPlaceCount: 1
+    MaxCountGiftsInOrder: 4
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 1
@@ -5690,6 +5702,7 @@ MonoBehaviour:
     MissionDurationMinutes: 10
     CustomerWaitSeconds: 50
     WinningCustomerCount: 12
+    MaxCountGiftsInOrder: 2
     GiftPlaceCount: 2
     BlueBox: 1
     RedBox: 1
@@ -5854,7 +5867,8 @@ MonoBehaviour:
     MissionDurationMinutes: 10
     CustomerWaitSeconds: 60
     WinningCustomerCount: 10
-    GiftPlaceCount: 3
+    MaxCountGiftsInOrder: 2
+    GiftPlaceCount: 1
     BlueBox: 1
     RedBox: 0
     GreenBox: 1
@@ -6229,7 +6243,8 @@ MonoBehaviour:
     MissionDurationMinutes: 5
     CustomerWaitSeconds: 25
     WinningCustomerCount: 13
-    GiftPlaceCount: 1
+    MaxCountGiftsInOrder: 4
+    GiftPlaceCount: 3
     BlueBox: 1
     RedBox: 1
     GreenBox: 1

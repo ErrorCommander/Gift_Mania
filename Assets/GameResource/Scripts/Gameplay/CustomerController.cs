@@ -73,7 +73,7 @@ namespace Gameplay
             if (_queueCustomers.Count == 0)
                 return;
 
-            int giftCount = Random.Range(1,4);
+            int giftCount = 1 + Random.Range(0, GameMode.CurrentSettings.MaxCountGiftsInOrder);
             int reward = -10 + 25 * giftCount;
             Queue<GiftInfo> gifts = new Queue<GiftInfo>();
             for (int i = 0; i < giftCount; i++)

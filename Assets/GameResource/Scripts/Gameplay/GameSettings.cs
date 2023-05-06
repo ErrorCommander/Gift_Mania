@@ -10,6 +10,7 @@ namespace Gameplay
         [Min(0)] public float MissionDurationMinutes;
         public float CustomerWaitSeconds;
         [Min(1)] public int WinningCustomerCount;
+        [Range(1,5)] public int MaxCountGiftsInOrder;
         [Range(1,5)] public int GiftPlaceCount;
         [Header("Gift Settings")]
         [Header("Box")]
@@ -30,7 +31,8 @@ namespace Gameplay
             CustomerWaitSeconds = customerWaitSeconds;
             MissionDurationMinutes = missionDurationMinutes;
             WinningCustomerCount = winningCustomerCount;
-            
+
+            MaxCountGiftsInOrder = 2;
             GiftPlaceCount = 1;
             
             BlueBox =
