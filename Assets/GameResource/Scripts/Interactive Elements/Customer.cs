@@ -1,6 +1,9 @@
 using Gameplay.ItemInfo;
+using Gameplay.SO;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,33 +20,21 @@ namespace Gameplay.Interactive
         [SerializeField] private GiftView _giftView;
         [SerializeField] private ElementsGiftView _elementsGiftView;
         [SerializeField] private Image _customerImage;
-        [SerializeField] private int _reward = 20;
-
+        [SerializeField] private TextMeshProUGUI _queueGiftText;
+        [SerializeField] private CustomerSpriteContainer _spriteContainer;
+        
+        private int _reward = 20;
+        private Queue<GiftInfo> _giftQueue;
         private Sprite _happy;
         private Sprite _sad;
         private Coroutine _wait;
         private GiftInfo _gift;
         private bool _isHappy= true;
 
-        public override bool TryAddItem(GiftInfo item)
+        public void Visit(float waitTime, int reward, GiftInfo gift)
         {
-            if (item.Equals(_gift))
-            {
-                Debug.Log($"{name} AddItem " + item);
-                _gift = null;
-                OnSuccessOrder.Invoke(_reward);
-                OnEndVisit.Invoke(this);
-                return true;
-            }
-
-            Debug.Log($"{name} dont get item " + item);
-            return false;
-        }
-
-        public void Visit(float waitTime, GiftInfo gift, Sprite happy, Sprite sad)
-        {
-            _happy = happy;
-            _sad = sad;
+            GetSpritePresset();
+            _reward = reward;
 
             SetHappy(true);
             
@@ -51,9 +42,58 @@ namespace Gameplay.Interactive
             if (waitTime > 0) 
                 _wait = StartCoroutine(Wait(waitTime));
 
+            SetGift(gift);
+        }
+
+        public void Visit(float waitTime, int reward, Queue<GiftInfo> gifts)
+        {
+            _giftQueue = gifts;
+            Visit( waitTime, reward, _giftQueue.Dequeue());
+        }
+
+        public override bool TryAddItem(GiftInfo item)
+        {
+            if (item.Equals(_gift))
+            {
+                Debug.Log($"{name} AddItem " + item);
+                _gift = null;
+
+                if (_giftQueue == null || _giftQueue.Count == 0)
+                {
+                    OnSuccessOrder.Invoke(_reward);
+                    OnEndVisit.Invoke(this);
+                }
+                else
+                    SetGift(_giftQueue.Dequeue());
+
+                return true;
+            }
+
+            Debug.Log($"{name} dont get item " + item);
+            return false;
+        }
+
+        private void GetSpritePresset()
+        {
+            var sprites = _spriteContainer.GetSprite();
+            _happy = sprites.happy;
+            _sad = sprites.sad;
+        }
+
+        private void SetGift(GiftInfo gift)
+        {
             _gift = gift;
-            _giftView.SetSprite(_gift);
-            _elementsGiftView.SetSprite(_gift);
+            _giftView.SetSprite(gift);
+            _elementsGiftView.SetSprite(gift);
+            SetQueueGiftsText();
+        }
+
+        private void SetQueueGiftsText()
+        {
+            if (_giftQueue == null || _giftQueue.Count == 0)
+                _queueGiftText.text = "";
+            else
+                _queueGiftText.text = "+" + _giftQueue.Count;
         }
 
         private void StopWait()

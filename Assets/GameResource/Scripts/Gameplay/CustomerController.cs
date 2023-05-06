@@ -17,7 +17,6 @@ namespace Gameplay
         [SerializeField, Min(0)] private float _minWait = 2f;
         [SerializeField, Min(1)] private float _maxWait = 5f;
         [SerializeField] private Customer[] _customers;
-        [SerializeField] private CustomerSkin[] _customerSkins;
 
         private Queue<Customer> _queueCustomers = new Queue<Customer>();
         private int _money = 0;
@@ -38,7 +37,7 @@ namespace Gameplay
 
             SendCustomer();
             _wait = StartCoroutine(Wait());
-            OnMoneyChanged.Invoke(0);
+            OnMoneyChanged.Invoke(_money);
             OnChangeRemainingCustomersCount.Invoke(_remainingCustomersCount);
         }
 
@@ -63,7 +62,7 @@ namespace Gameplay
                     StopCoroutine(_wait);
             }
             
-            OnMoneyChanged.Invoke(value);
+            OnMoneyChanged.Invoke(_money);
             OnChangeRemainingCustomersCount.Invoke(_remainingCustomersCount);
         }
 
@@ -73,12 +72,18 @@ namespace Gameplay
         {
             if (_queueCustomers.Count == 0)
                 return;
+
+            int giftCount = Random.Range(1,4);
+            int reward = -10 + 25 * giftCount;
+            Queue<GiftInfo> gifts = new Queue<GiftInfo>();
+            for (int i = 0; i < giftCount; i++)
+            {
+                gifts.Enqueue(new GiftInfo(GameMode.GetRandomGiftCode()));
+            }
             
-            var skin = _customerSkins[Random.Range(0, _customerSkins.Length)];
             _queueCustomers.Dequeue()
                 .With(c => c.gameObject.SetActive(true))
-                .Visit(GameMode.CurrentSettings.CustomerWaitSeconds, 
-                new GiftInfo(GameMode.GetRandomGiftCode()), skin.Happy, skin.Sad);
+                .Visit(GameMode.CurrentSettings.CustomerWaitSeconds, reward, gifts);
         }
 
         private IEnumerator Wait()
@@ -88,13 +93,6 @@ namespace Gameplay
                 yield return new WaitForSeconds(Random.Range(_minWait, _maxWait));
                 SendCustomer();
             }
-        }
-        
-        [Serializable]
-        private class CustomerSkin
-        {
-            public Sprite Happy;
-            public Sprite Sad;
         }
     }
 }

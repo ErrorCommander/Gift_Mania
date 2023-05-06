@@ -32,7 +32,7 @@ namespace Gameplay
             }
 
             int giftBox = _giftVariants[Random.Range(0, _giftVariants.Count)];
-            Debug.Log("Get random GiftCode: " + giftBox);
+            //Debug.Log("Get random GiftCode: " + giftBox);
             return giftBox;
         }
 
