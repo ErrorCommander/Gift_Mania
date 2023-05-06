@@ -4,6 +4,10 @@ namespace Gameplay.ItemInfo
 {
     public class GiftInfo : BaseItemInfo
     {
+        public BoxInfo Box => _box;
+        public BowInfo Bow => _bow;
+        public OrnamentInfo Ormanent => _ornament; 
+        
         private BoxInfo _box;
         private BowInfo _bow;
         private OrnamentInfo _ornament;
@@ -12,9 +16,13 @@ namespace Gameplay.ItemInfo
 
         public GiftInfo(int code)
         {
-            _box = new BoxInfo((ElementColor)(code / 100));
-            _bow = new BowInfo((ElementColor)((code / 10) % 10));
-            _ornament = new OrnamentInfo((ElementColor)(code % 10));
+            int boxCode = code / 100;
+            int bowCode = (code / 10) % 10;
+            int ornamentCode = code % 10;
+            
+            _box = boxCode == 0 ? null : new BoxInfo((ElementColor)boxCode);
+            _bow = bowCode == 0 ? null : new BowInfo((ElementColor)bowCode);
+            _ornament = ornamentCode == 0 ? null : new OrnamentInfo((ElementColor)ornamentCode);
         }
 
         public bool AddElement(BowInfo bow) => AddElement(bow, ref _bow);

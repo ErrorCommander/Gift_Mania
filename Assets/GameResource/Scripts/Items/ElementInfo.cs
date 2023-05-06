@@ -1,3 +1,5 @@
+using System;
+
 namespace Gameplay.ItemInfo
 {
     public abstract class ElementInfo : BaseItemInfo
@@ -6,6 +8,12 @@ namespace Gameplay.ItemInfo
         
         private ElementColor _color;
 
-        public ElementInfo(ElementColor color) => _color = color;
+        public ElementInfo(ElementColor color)
+        {
+            if (!Enum.IsDefined(typeof(ElementColor), color))
+                throw new ArgumentException("Invalid color value", nameof(color));
+
+            _color = color;
+        }
     }
 }

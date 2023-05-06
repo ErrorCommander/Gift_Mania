@@ -1,5 +1,4 @@
 using Gameplay.ItemInfo;
-using Gameplay.SO;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -15,9 +14,9 @@ namespace Gameplay.Interactive
         public event Action<int> OnSuccessOrder = delegate {  };
         public event Action<Customer> OnEndVisit = delegate (Customer customer) { customer.gameObject.SetActive(false); };
 
-        [SerializeField] private GiftSpriteContainer _spriteContainer;
+        [SerializeField] private GiftView _giftView;
+        [SerializeField] private ElementsGiftView _elementsGiftView;
         [SerializeField] private Image _customerImage;
-        [SerializeField] private Image _giftImage;
         [SerializeField] private int _reward = 20;
 
         private Sprite _happy;
@@ -53,7 +52,8 @@ namespace Gameplay.Interactive
                 _wait = StartCoroutine(Wait(waitTime));
 
             _gift = gift;
-            _giftImage.sprite = _spriteContainer.GetSprite(_gift);
+            _giftView.SetSprite(_gift);
+            _elementsGiftView.SetSprite(_gift);
         }
 
         private void StopWait()

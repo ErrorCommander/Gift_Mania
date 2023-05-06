@@ -1,15 +1,11 @@
 using Gameplay.ItemInfo;
-using Gameplay.SO;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Gameplay.Interactive
 {
     public class Gift : InteractiveMovableItem<GiftInfo>
     {
-        [SerializeField] private Image _imageGift;
-        [SerializeField] private GiftSpriteContainer _spriteContainer;
-        [SerializeField, Range(0, 0.5f)] private float _fadeDuration = 0.2f;
+        [SerializeField] private GiftView _giftView;
         
         private GiftInfo _giftInfo;
 
@@ -21,7 +17,6 @@ namespace Gameplay.Interactive
             _giftInfo = new GiftInfo(box);
             Debug.Log($"Create gift result gift {_giftInfo}");
             SetSprite();
-            AppearSprite();
             return true;
         }
 
@@ -54,8 +49,8 @@ namespace Gameplay.Interactive
             if (!isTransferred) 
                 return;
 
-            HideSprite();
             _giftInfo = null;
+            SetSprite();
         }
 
         protected override GiftInfo GetItem()
@@ -63,18 +58,11 @@ namespace Gameplay.Interactive
             return _giftInfo;
         }
 
-        private void Start() => HideSprite();
-
-        private void HideSprite() => _imageGift.CrossFadeAlpha(0, 0, true);
-
-        private void AppearSprite() => _imageGift.CrossFadeAlpha(1, _fadeDuration, true);
+        private void Start() => SetSprite();
 
         private void SetSprite()
         {
-            if (_giftInfo == null)
-                return;
-            
-            _imageGift.sprite = _spriteContainer.GetSprite(_giftInfo);;
+            _giftView.SetSprite(_giftInfo);
         }
     }
 }
