@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 namespace Gameplay.Interactive
 {
+    [RequireComponent(typeof(Image))]
     public class Customer : InteractiveItemPlace<GiftInfo>
     {
         private const float SAD_BORDER = 0.3f;
@@ -17,7 +18,7 @@ namespace Gameplay.Interactive
         public event Action OnFailSendGift = delegate {  };
         public event Action OnSuccessfulSendGift = delegate {  };
         public event Action<int> OnSuccessOrder = delegate {  };
-        public event Action<Customer> OnEndVisit = delegate (Customer customer) { customer.gameObject.SetActive(false); };
+        public event Action<Customer> OnEndVisit = delegate (Customer c) {  };
 
         [SerializeField] private GiftView _giftView;
         [SerializeField] private ElementsGiftView _elementsGiftView;
@@ -25,6 +26,7 @@ namespace Gameplay.Interactive
         [SerializeField] private TextMeshProUGUI _queueGiftText;
         [SerializeField] private CustomerSpriteContainer _spriteContainer;
         
+        private Image _raycastImage;
         private int _reward = 20;
         private Queue<GiftInfo> _giftQueue;
         private Sprite _happy;
@@ -45,6 +47,7 @@ namespace Gameplay.Interactive
                 _wait = StartCoroutine(Wait(waitTime));
 
             SetGift(gift);
+            StartAnimation();
         }
 
         public void Visit(float waitTime, int reward, Queue<GiftInfo> gifts)
@@ -65,8 +68,8 @@ namespace Gameplay.Interactive
 
                 if (_giftQueue == null || _giftQueue.Count == 0)
                 {
+                    ExitAnimation();
                     OnSuccessOrder.Invoke(_reward);
-                    OnEndVisit.Invoke(this);
                 }
                 else
                     SetGift(_giftQueue.Dequeue());
@@ -79,6 +82,8 @@ namespace Gameplay.Interactive
             OnFailSendGift.Invoke();
             return false;
         }
+
+        private void Awake() => _raycastImage = GetComponent<Image>();
 
         private void GetSpritePresset()
         {
@@ -123,9 +128,9 @@ namespace Gameplay.Interactive
             }
 
             _wait = null;
+            ExitAnimation();
             OnChangeWaitTime.Invoke(0, second);
             OnFailOrder.Invoke();
-            OnEndVisit.Invoke(this);
         }
 
         private void SetHappy(bool isHappy)
@@ -133,5 +138,37 @@ namespace Gameplay.Interactive
             _customerImage.sprite = isHappy ? _happy : _sad;
             _isHappy = isHappy;
         }
+
+        [ContextMenu("Visit Animation")]
+        public void StartAnimation() => StartCoroutine(VisitAnimation(new Vector3(0, -100, 0), new Vector3(0, 0, 0), 0.5f, true));
+        
+        [ContextMenu("Exit Animation")]
+        public void ExitAnimation() => StartCoroutine(VisitAnimation(new Vector3(0, 0, 0), new Vector3(0, -100, 0), 0.5f, false));
+
+        private IEnumerator VisitAnimation(Vector3 deltaStart, Vector3 deltaEnd, float duration, bool startVisit)
+        {
+            var originalPos = transform.position;
+            var targetPos = transform.position + deltaEnd;
+            var startPos = transform.position += deltaStart;
+            var delta = (targetPos - startPos) * (1 / duration);
+            _giftView.gameObject.SetActive(!startVisit);
+            _raycastImage.raycastTarget = startVisit;
+            
+            //TODO: optimize check  
+            while ((targetPos - transform.position).sqrMagnitude < (targetPos - transform.position + delta * Time.deltaTime).sqrMagnitude)
+            {
+                
+                transform.position += delta * Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = originalPos;
+            _giftView.gameObject.SetActive(startVisit);
+            gameObject.SetActive(startVisit);
+            
+            if (!startVisit) 
+                OnEndVisit.Invoke(this);
+        }
+        
     }
 }

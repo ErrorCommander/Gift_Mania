@@ -7,6 +7,12 @@ namespace Gameplay.Interactive
     [RequireComponent(typeof(Image))]
     public class Gift : InteractiveMovableItem<GiftInfo>
     {
+        public bool raycastable
+        {
+            get => _raycastImage.raycastTarget;
+            set => _raycastImage.raycastTarget = value;
+        }
+
         [SerializeField] private GiftView _giftView;
         
         private Image _raycastImage;
@@ -17,7 +23,7 @@ namespace Gameplay.Interactive
             if (_giftInfo != null)
                 return false;
 
-            _raycastImage.raycastTarget = true;
+            raycastable = true;
             _giftInfo = new GiftInfo(box);
             Debug.Log($"Create gift result gift {_giftInfo}");
             SetSprite();
@@ -53,7 +59,7 @@ namespace Gameplay.Interactive
             if (!isTransferred) 
                 return;
 
-            _raycastImage.raycastTarget = false;
+            raycastable = false;
             _giftInfo = null;
             SetSprite();
         }
@@ -66,7 +72,7 @@ namespace Gameplay.Interactive
         private void Start()
         {
             _raycastImage = GetComponent<Image>();
-            _raycastImage.raycastTarget = false;
+            raycastable = false;
             SetSprite();
         }
 
