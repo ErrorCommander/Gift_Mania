@@ -534,9 +534,10 @@ Animation:
   m_GameObject: {fileID: 625541498572405914}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: c4be58267c4a8004d8785945c93beaca, type: 2}
+  m_Animation: {fileID: 7400000, guid: 2e3b33b27099aa7479f5d706c9a11baf, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: c4be58267c4a8004d8785945c93beaca, type: 2}
+  - {fileID: 7400000, guid: 2e3b33b27099aa7479f5d706c9a11baf, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -1066,6 +1067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _customer: {fileID: 625541499236346971}
+  _failAnimationName: Gift Fail
+  _successAnimationName: Gift Success
   _animation: {fileID: 2779782511947605523}
 --- !u!1 &625541499264512072
 GameObject:

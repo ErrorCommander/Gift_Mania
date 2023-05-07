@@ -2199,15 +2199,6 @@ MonoBehaviour:
   - {fileID: 1775613282}
   - {fileID: 533638363}
   - {fileID: 48998917}
-  _customerSkins:
-  - Happy: {fileID: 21300000, guid: 5974d9e287353b44a832fe8a7413f55e, type: 3}
-    Sad: {fileID: 21300000, guid: 012ecb172f15a4343ac3c16f8ee4a97d, type: 3}
-  - Happy: {fileID: 21300000, guid: 15d1b5869b0162c47835dcbacd93c231, type: 3}
-    Sad: {fileID: 21300000, guid: 3e9f94ce8c5545c4583f90971d0ec001, type: 3}
-  - Happy: {fileID: 21300000, guid: 9b5cd93a3eeca6c43b077ac088896db9, type: 3}
-    Sad: {fileID: 21300000, guid: e1021f64d92e3634e8dd350a5d37c594, type: 3}
-  - Happy: {fileID: 21300000, guid: e7003c5d583170b4cb2ae861897f38bf, type: 3}
-    Sad: {fileID: 21300000, guid: 05a71a8912e40954aaeef03c3281173d, type: 3}
 --- !u!224 &606596803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1050158758728911086, guid: 688abcd5eaffc6c47a515e3abbe30819, type: 3}
@@ -5141,6 +5132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer
       objectReference: {fileID: 0}
+    - target: {fileID: 2779782511947605523, guid: d729114a2324344428faab93b2a434c4, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: c4be58267c4a8004d8785945c93beaca, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d729114a2324344428faab93b2a434c4, type: 3}
 --- !u!1001 &4386160425862130321
